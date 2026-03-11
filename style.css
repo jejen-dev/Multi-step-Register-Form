@@ -112,7 +112,11 @@ input::placeholder {
     border: 1px solid transparent;
 }
 
-.checkbox-wrapper:hover,
+.checkbox-wrapper:hover {
+    background: #845EEE;
+    color: #fff;
+}
+
 .checkbox-wrapper:focus-within {
     background: #845EEE;
     color: #fff;
