@@ -14,7 +14,7 @@ body {
     height: 100vh;
     background-image: url(resources/blur-radial.png);
     background-repeat: no-repeat;
-    background-position: 35% 20%;
+    background-position: 30% 20%;
     background-color: #121826;
 }
 
@@ -23,7 +23,8 @@ body {
     flex-direction: column;
     padding: 30px 35px;
     border-radius: 10px;
-    width: auto;
+    width: 500px;
+    max-width: 500px;
     border: 1px solid transparent;
     background: linear-gradient(#212936 0 0) padding-box, linear-gradient(120deg, rgba(229, 231, 235, 0.5) 0.05%, rgba(229, 231, 235, 0) 25.05%) border-box;
     background-clip: padding-box, border-box;
@@ -52,7 +53,9 @@ input {
     background-color: transparent;
     border: 1.5px solid #4D5562;
     color: #fff;
-    width: 400px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     margin-top: 5px;
 }
 
@@ -93,7 +96,7 @@ input::placeholder {
     font-size: 12px;
 }
 
-.option {
+.checkbox {
     background: #394150;
     padding: 12px 17px;
     margin: 2px 0;
@@ -114,6 +117,8 @@ input::placeholder {
     font-size: 16px;
     width: 400px;
     line-height: 1.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .step3 div p {
@@ -179,14 +184,14 @@ ul {
 .step1,
 .step2,
 .step3 {
-    width: 400px;
+    width: 100%;
 }
 
 .step2 .input-group {
     width: 100%;
 }
 
-.option {
+.checkbox {
     width: 100%;
 }
 
@@ -212,21 +217,47 @@ ul {
     transform: translateY(0);
 }
 
-@media (max-width: 412px) {
+@media (max-width: 768px) {
+
     .container {
-        width: auto;
+        width: 500px;
+        max-width: 500px;
     }
 
-    input {
+    .step3 {
         width: 100%;
     }
+}
 
-    .step2 {
-        width: 100%;
+@media (max-width: 425px) {
+
+    .container {
+        width: 400px;
+        max-width: 400px;
     }
 
-    .option {
+    .step3 {
         width: 100%;
+    }
+}
+
+@media (max-width: 375px) {
+
+    .container {
+        width: 350px;
+        max-width: 350px;
+    }
+
+    .step3 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .container {
+        width: 300px;
+        max-width: 300px;
     }
 
     .step3 {

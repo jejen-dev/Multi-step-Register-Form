@@ -5,12 +5,14 @@ const dots = document.querySelectorAll('.dot');
 
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
+nameInput.maxLength = 50;
+emailInput.maxLength = 60;
 
 const summaryName = document.getElementById('summary-name');
 const summaryEmail = document.getElementById('summary-email');
 const summaryTopic = document.getElementById('summary-topic');
 
-const options = document.querySelectorAll('.option');
+const options = document.querySelectorAll('.checkbox');
 const toast = document.getElementById('toast');
 
 const step1 = document.querySelector('.step1');
