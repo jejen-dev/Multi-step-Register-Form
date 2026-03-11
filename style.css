@@ -256,8 +256,8 @@ ul {
 @media (max-width: 320px) {
 
     .container {
-        width: 300px;
-        max-width: 300px;
+        width: 295px;
+        max-width: 295px;
     }
 
     .step3 {
