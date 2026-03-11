@@ -96,21 +96,46 @@ input::placeholder {
     font-size: 12px;
 }
 
-.checkbox {
+/* ================= CHECKBOX STEP 2 ================= */
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
     background: #394150;
-    padding: 12px 17px;
+    padding: 12px 15px;
     margin: 2px 0;
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
     font-size: 14px;
     color: #A1A1A9;
-    border: 1px solid #4D5562;
+    border: 1px solid transparent;
 }
 
-.selected {
-    background: #5425AF;
-    border: 1px solid #845EEE;
+.checkbox-wrapper:hover {
+    background: #4c556c;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #845eee;
+    width: 18px;
+    height: 18px;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked+label {
+    color: #fff;
+    font-weight: 500;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+fieldset .t1 {
+    margin-bottom: 20px;
 }
 
 .step3 {
@@ -146,12 +171,10 @@ ul {
     width: 12px;
     height: 12px;
     background-color: #334155;
-    /* Abu-abu gelap untuk yang tidak aktif */
     border-radius: 50%;
     transition: all 0.3s ease;
 }
 
-/* Gaya titik aktif */
 .dot.active {
     background-color: #7c3aed;
     box-shadow: 0 0 10px #7c3aed, 0 0 2px rgba(124, 58, 237, 0.4);
@@ -162,8 +185,6 @@ ul {
 .step3 {
     display: none;
 }
-
-/* PROGRESS BAR */
 
 .progress-bar {
     width: 100%;
@@ -188,10 +209,6 @@ ul {
 }
 
 .step2 .input-group {
-    width: 100%;
-}
-
-.checkbox {
     width: 100%;
 }
 

@@ -27,28 +27,35 @@
         <div class="input-group">
           <div>
             <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name" placeholder="Enter your name">
+            <input type="text" id="name" name="name" placeholder="Enter your name" maxlength="50">
           </div>
           <div>
             <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" placeholder="Example@gmail.com">
+            <input type="email" id="email" name="email" placeholder="Example@gmail.com" maxlength="60">
           </div>
         </div>
       </div>
 
       <div class="step2">
-        <p class="t1">Which topics you are interested in?</p><br>
-        <div class="input-group">
-          <div class="checkbox">
-            Software Development
+        <fieldset class="input-group">
+          <legend class="t1">Which topics you are interested in?</legend>
+
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="topic-software" name="topics" value="Software Development">
+            <label for="topic-software">Software Development</label>
           </div>
-          <div class="checkbox">
-            User Experience
+
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="topic-ux" name="topics" value="User Experience">
+            <label for="topic-ux">User Experience</label>
           </div>
-          <div class="checkbox">
-            Graphic Design
+
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="topic-graphic" name="topics" value="Graphic Design">
+            <label for="topic-graphic">Graphic Design</label>
           </div>
-        </div>
+
+        </fieldset>
       </div>
 
       <div class="step3">
@@ -67,7 +74,7 @@
 
       <br><br>
 
-      <div class="continue" id="next-btn">
+      <div class="continue">
         <button type="button" class="btn" id="next-btn">Continue</button>
       </div>
 

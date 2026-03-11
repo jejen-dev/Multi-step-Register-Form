@@ -5,14 +5,12 @@ const dots = document.querySelectorAll('.dot');
 
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
-nameInput.maxLength = 50;
-emailInput.maxLength = 60;
 
 const summaryName = document.getElementById('summary-name');
 const summaryEmail = document.getElementById('summary-email');
 const summaryTopic = document.getElementById('summary-topic');
 
-const options = document.querySelectorAll('.checkbox');
+const topicCheckboxes = document.querySelectorAll('input[name="topics"]');
 const toast = document.getElementById('toast');
 
 const step1 = document.querySelector('.step1');
@@ -26,59 +24,29 @@ const totalSteps = dots.length;
 
 let selectedTopics = [];
 
-
 /* TOAST FUNCTION */
-
 function showToast(message) {
-
     toast.textContent = message;
-
     toast.classList.add("show");
-
     setTimeout(() => {
         toast.classList.remove("show");
     }, 3000);
-
 }
 
-
-/* MULTI TOPIC SELECT */
-
-options.forEach(option => {
-
-    option.addEventListener('click', () => {
-
-        option.classList.toggle('selected');
-
-        const topic = option.textContent.trim();
-
-        if (selectedTopics.includes(topic)) {
-
-            selectedTopics = selectedTopics.filter(t => t !== topic);
-
-        } else {
-
-            selectedTopics.push(topic);
-
-        }
-
-    });
-
-});
-
+/* GET SELECTED TOPICS */
+function getSelectedTopics() {
+    return Array.from(topicCheckboxes)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+}
 
 /* EMAIL VALIDATION */
-
 function isValidEmail(email) {
-
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
     return re.test(String(email).toLowerCase());
 }
 
-
 updateUI();
-
 
 nextBtn.addEventListener('click', () => {
 
@@ -103,6 +71,8 @@ nextBtn.addEventListener('click', () => {
 
     if (currentStep === 2) {
 
+        selectedTopics = getSelectedTopics();
+
         if (selectedTopics.length === 0) {
             showToast("Pilih minimal 1 topik");
             return;
@@ -112,15 +82,10 @@ nextBtn.addEventListener('click', () => {
         summaryEmail.textContent = emailInput.value;
 
         summaryTopic.innerHTML = "";
-
         selectedTopics.forEach(topic => {
-
             const li = document.createElement("li");
-
             li.textContent = topic;
-
             summaryTopic.appendChild(li);
-
         });
 
     }
@@ -135,28 +100,23 @@ nextBtn.addEventListener('click', () => {
 
 });
 
-
 function updateUI() {
 
     stepLabel.textContent = `Step ${currentStep} of ${totalSteps}`;
 
     dots.forEach((dot, index) => {
-
         if (index === currentStep - 1) {
             dot.classList.add('active');
         } else {
             dot.classList.remove('active');
         }
-
     });
 
     stepContainers.forEach((container, index) => {
-
         if (index === currentStep - 1) {
             container.style.display = 'block';
         } else {
             container.style.display = 'none';
         }
-
     });
 }
