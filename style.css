@@ -112,20 +112,27 @@ input::placeholder {
     border: 1px solid transparent;
 }
 
-.checkbox-wrapper:hover {
-    background: #4c556c;
+.checkbox-wrapper:hover,
+.checkbox-wrapper:focus-within {
+    background: #845EEE;
+    color: #fff;
 }
 
 .checkbox-wrapper input[type="checkbox"] {
-    margin-right: 10px;
-    accent-color: #845eee;
-    width: 18px;
-    height: 18px;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 .checkbox-wrapper input[type="checkbox"]:checked+label {
     color: #fff;
-    font-weight: 500;
+    font-weight: 0;
+}
+
+.checkbox-wrapper:has(input[type="checkbox"]:checked) {
+    background: #5425AF;
+    color: #fff;
 }
 
 fieldset {
